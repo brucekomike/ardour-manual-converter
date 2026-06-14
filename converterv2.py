@@ -62,9 +62,20 @@ for block in file_blocks:
 index_list=index_list[1:]
 index_files=[0,0,0,0]
 index_index=0
+page_index=0
 for page in index_list:
+  try:
+    index_list[page_index+1]
+    if page[2] < index_list[page_index+1][2]:
+      embed_index_flag=True
+    else:
+      embed_index_flag=False
+  except IndexError:
+    pass
+
   print(page)
-  if page[3] == 1:
+  
+  if page[3] == 1 or embed_index_flag:
     if page[2] > index_index:
       index_index += 1
     elif page[2] < index_index:
@@ -85,6 +96,7 @@ for page in index_list:
     os.makedirs(f"{page_dir}", exist_ok=True)
     os.system(f"echo \"# {page[0]}\" > {outdir}/{page[1]}.md")
     os.system(f"pandoc -i manual/include/{page[3]} -t markdown -o - >> {outdir}/{page[1]}.md")
+  page_index+=1
 
 for index in index_files:
   if index != 0:
