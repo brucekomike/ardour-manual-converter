@@ -90,7 +90,7 @@ for page in index_list:
       index_files[index_index-1].write(f"/{page[1]}/index.md\n")
     index_files[index_index] = open(f"{outdir}/{page[1]}/index.md", "w", encoding="utf-8")
     index_files[index_index].write(f"# {page[0]}\n")
-    if embed_index_flag:
+    if page[3] != 1:
       pandoc_output = subprocess.check_output(
         ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown", "-o", "-"],
         text=True,
