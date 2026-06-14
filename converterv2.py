@@ -19,6 +19,61 @@ def slugify(value: str) -> str:
   return re.sub(r"-+", "-", value).strip("-")
 
 
+def is_grid_table_border(line: str) -> bool:
+  return bool(re.match(r"^\+[+=\- ]+\+$", line.rstrip("\n")))
+
+
+def is_grid_table_row(line: str) -> bool:
+  return line.lstrip().startswith("|")
+
+
+def wrap_grid_tables(text: str) -> str:
+  lines = text.splitlines(keepends=True)
+  output = []
+  index = 0
+
+  while index < len(lines):
+    if is_grid_table_border(lines[index]) and index + 1 < len(lines) and is_grid_table_row(lines[index + 1]):
+      table_start = index
+      table_end = index + 1
+
+      while table_end < len(lines) and (
+        is_grid_table_border(lines[table_end]) or is_grid_table_row(lines[table_end])
+      ):
+        table_end += 1
+
+      output.append("```{eval-rst}\n")
+      output.extend(lines[table_start:table_end])
+      if output and not output[-1].endswith("\n"):
+        output.append("\n")
+      output.append("```\n")
+      index = table_end
+      continue
+
+    output.append(lines[index])
+    index += 1
+
+  return "".join(output)
+
+
+def wrap_grid_tables_in_markdown_tree(root_dir: str) -> None:
+  for current_root, _, files in os.walk(root_dir):
+    for file_name in files:
+      if not file_name.endswith(".md"):
+        continue
+
+      file_path = os.path.join(current_root, file_name)
+      with open(file_path, "r", encoding="utf-8") as file:
+        original_text = file.read()
+
+      updated_text = wrap_grid_tables(original_text)
+      if updated_text == original_text:
+        continue
+
+      with open(file_path, "w", encoding="utf-8") as file:
+        file.write(updated_text)
+
+
 with open("manual/master-doc.txt", "r", encoding="utf-8") as file:
   file_contents = file.read()
 
@@ -92,7 +147,7 @@ for page in index_list:
     index_files[index_index].write(f"# {page[0]}\n")
     if page[3] != 1:
       pandoc_output = subprocess.check_output(
-        ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown", "-o", "-"],
+        ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
         text=True,
       )
       index_files[index_index].write(pandoc_output)
@@ -103,7 +158,7 @@ for page in index_list:
     page_dir=os.path.dirname(f"{outdir}/{page[1]}")
     os.makedirs(f"{page_dir}", exist_ok=True)
     os.system(f"echo \"# {page[0]}\" > {outdir}/{page[1]}.md")
-    os.system(f"pandoc -i manual/include/{page[3]} -t markdown -o - >> {outdir}/{page[1]}.md")
+    os.system(f"pandoc -i manual/include/{page[3]} -t markdown-multiline_tables-simple_tables -o - >> {outdir}/{page[1]}.md")
   page_index+=1
 
 for index in index_files:
@@ -119,3 +174,5 @@ with open(f"{outdir}/index.md", "w", encoding="utf-8") as index_file:
       index_file.write(f"/{page[1]}/index.md\n")
   index_file.write("```\n")
   index_file.close()
+
+wrap_grid_tables_in_markdown_tree(outdir)
