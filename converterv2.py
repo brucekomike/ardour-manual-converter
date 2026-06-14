@@ -1,5 +1,6 @@
 import re
 import os
+import subprocess
 
 
 def parse_block(block: str) -> dict[str, str]:
@@ -89,6 +90,13 @@ for page in index_list:
       index_files[index_index-1].write(f"/{page[1]}/index.md\n")
     index_files[index_index] = open(f"{outdir}/{page[1]}/index.md", "w", encoding="utf-8")
     index_files[index_index].write(f"# {page[0]}\n")
+    if embed_index_flag:
+      pandoc_output = subprocess.check_output(
+        ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown", "-o", "-"],
+        text=True,
+      )
+      index_files[index_index].write(pandoc_output)
+      index_files[index_index].write("\n")
     index_files[index_index].write("```{toctree}\n")
   else:
     index_files[index_index].write(f"/{page[1]}\n")
