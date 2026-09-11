@@ -2,6 +2,11 @@ import re
 import os
 import subprocess
 
+RAW_IMAGE_BASE_URL = "https://raw.githubusercontent.com/Ardour/manual/refs/heads/master/source/images/"
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
+MARKDOWN_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+HTML_IMAGE_RE = re.compile(r'(<img\b[^>]*\bsrc=["\'])([^"\']+)(["\'])', re.IGNORECASE)
+
 
 def parse_block(block: str) -> dict[str, str]:
   data = {}
@@ -72,6 +77,69 @@ def wrap_grid_tables_in_markdown_tree(root_dir: str) -> None:
 
       with open(file_path, "w", encoding="utf-8") as file:
         file.write(updated_text)
+
+
+def _normalize_image_path(path: str) -> str | None:
+  candidate = path.strip()
+  if not candidate:
+    return None
+  if candidate.startswith(("http://", "https://", "data:", "mailto:", "#")):
+    return None
+
+  normalized = candidate.replace("\\", "/")
+  lower_normalized = normalized.lower()
+
+  image_path = None
+  if "source/images/" in lower_normalized:
+    image_path = normalized[lower_normalized.index("source/images/") + len("source/images/") :]
+  elif "/images/" in lower_normalized:
+    image_path = normalized[lower_normalized.index("/images/") + len("/images/") :]
+  elif lower_normalized.startswith("images/"):
+    image_path = normalized[len("images/") :]
+  elif normalized.lower().endswith(IMAGE_EXTENSIONS) and "/" not in normalized:
+    image_path = normalized
+
+  if not image_path:
+    return None
+
+  image_path = image_path.lstrip("./")
+  return f"{RAW_IMAGE_BASE_URL}{image_path}"
+
+
+def rewrite_image_links(text: str) -> str:
+  def markdown_replacer(match: re.Match[str]) -> str:
+    alt_text = match.group(1)
+    destination = match.group(2).strip()
+
+    has_angle_brackets = destination.startswith("<")
+    link_target = destination
+    trailing = ""
+
+    if has_angle_brackets:
+      closing_index = destination.find(">")
+      if closing_index != -1:
+        link_target = destination[1:closing_index]
+        trailing = destination[closing_index + 1 :]
+    elif " " in destination:
+      link_target, trailing = destination.split(" ", 1)
+      trailing = f" {trailing}"
+
+    rewritten = _normalize_image_path(link_target)
+    if not rewritten:
+      return match.group(0)
+
+    if has_angle_brackets:
+      return f"![{alt_text}](<{rewritten}>{trailing})"
+    return f"![{alt_text}]({rewritten}{trailing})"
+
+  def html_replacer(match: re.Match[str]) -> str:
+    rewritten = _normalize_image_path(match.group(2))
+    if not rewritten:
+      return match.group(0)
+    return f"{match.group(1)}{rewritten}{match.group(3)}"
+
+  text = MARKDOWN_IMAGE_RE.sub(markdown_replacer, text)
+  return HTML_IMAGE_RE.sub(html_replacer, text)
 
 
 with open("manual/master-doc.txt", "r", encoding="utf-8") as file:
@@ -150,6 +218,7 @@ for page in index_list:
         ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
         text=True,
       )
+      pandoc_output = rewrite_image_links(pandoc_output)
       index_files[index_index].write(pandoc_output)
       index_files[index_index].write("\n")
     index_files[index_index].write("```{toctree}\n")
@@ -157,8 +226,14 @@ for page in index_list:
     index_files[index_index].write(f"/{page[1]}\n")
     page_dir=os.path.dirname(f"{outdir}/{page[1]}")
     os.makedirs(f"{page_dir}", exist_ok=True)
-    os.system(f"echo \"# {page[0]}\" > {outdir}/{page[1]}.md")
-    os.system(f"pandoc -i manual/include/{page[3]} -t markdown-multiline_tables-simple_tables -o - >> {outdir}/{page[1]}.md")
+    pandoc_output = subprocess.check_output(
+      ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
+      text=True,
+    )
+    pandoc_output = rewrite_image_links(pandoc_output)
+    with open(f"{outdir}/{page[1]}.md", "w", encoding="utf-8") as markdown_file:
+      markdown_file.write(f"# {page[0]}\n")
+      markdown_file.write(pandoc_output)
   page_index+=1
 
 for index in index_files:
