@@ -1,0 +1,39 @@
+name: Convert Ardour Manual and Deploy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  convert-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Fetch latest Ardour manual source
+        run: ./get-repo.sh
+
+      - name: Convert manual to markdown tree
+        run: |
+          rm -rf docs/source
+          python3 converterv2.py
+
+      - name: Deploy docs to GitHub Pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/source
+          publish_branch: gh-pages
+          force_orphan: true
+          enable_jekyll: false
