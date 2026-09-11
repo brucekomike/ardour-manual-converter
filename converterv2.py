@@ -6,6 +6,7 @@ RAW_IMAGE_BASE_URL = "https://raw.githubusercontent.com/Ardour/manual/refs/heads
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 MARKDOWN_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 HTML_IMAGE_RE = re.compile(r'(<img\b[^>]*\bsrc=["\'])([^"\']+)(["\'])', re.IGNORECASE)
+MALFORMED_KBD_RE = re.compile(r"(<kbd\b[^>]*>[^<]*)<kbd>", re.IGNORECASE)
 
 
 def parse_block(block: str) -> dict[str, str]:
@@ -142,112 +143,125 @@ def rewrite_image_links(text: str) -> str:
   return HTML_IMAGE_RE.sub(html_replacer, text)
 
 
-with open("manual/master-doc.txt", "r", encoding="utf-8") as file:
-  file_contents = file.read()
+def sanitize_html_for_pandoc(text: str) -> str:
+  return MALFORMED_KBD_RE.sub(r"\1</kbd>", text)
 
-raw_blocks = re.split(r"^---\s*$", file_contents, flags=re.MULTILINE)
-file_blocks = [block.strip() for block in raw_blocks if block.strip()]
 
-outdir="docs/source"
-index_list=[]
+def convert_html_to_markdown(include_path: str) -> str:
+  with open(include_path, "r", encoding="utf-8") as html_file:
+    html_input = sanitize_html_for_pandoc(html_file.read())
 
-for block in file_blocks:
-  page_info=[]
-  #0 page title
-  #1 page uri
-  #2 parrent level
-  #3 index flag / include html
-  data = parse_block(block)
-  # uri check
-  if data.get("uri") is None:
-    current_uri = slugify(data.get("title"))
-  else:
-    current_uri = data.get("uri")
-  page_info.append(data.get("title"))
-  page_info.append(current_uri)
-  # index check
-  if data.get("part") == "part":
-    page_info.append(0)
-  if data.get("part") == "chapter":
-    page_info.append(1)
-  if data.get("part") == "subchapter":
-    page_info.append(2)
-  if data.get("part") == "section":
-    page_info.append(3)
+  pandoc_output = subprocess.check_output(
+    ["pandoc", "-f", "html", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
+    input=html_input,
+    text=True,
+  )
+  return rewrite_image_links(pandoc_output)
 
-  if data.get("include") is None:
-    page_info.append(1)
-  else:
-    page_info.append(data.get("include"))
 
-  index_list.append(page_info)
-  # print(page_info)
+def main() -> None:
+  with open("manual/master-doc.txt", "r", encoding="utf-8") as file:
+    file_contents = file.read()
 
-index_list=index_list[1:]
-index_files=[0,0,0,0]
-index_index=0
-page_index=0
-for page in index_list:
-  try:
-    index_list[page_index+1]
-    if page[2] < index_list[page_index+1][2]:
-      embed_index_flag=True
+  raw_blocks = re.split(r"^---\s*$", file_contents, flags=re.MULTILINE)
+  file_blocks = [block.strip() for block in raw_blocks if block.strip()]
+
+  outdir="docs/source"
+  index_list=[]
+
+  for block in file_blocks:
+    page_info=[]
+    #0 page title
+    #1 page uri
+    #2 parrent level
+    #3 index flag / include html
+    data = parse_block(block)
+    # uri check
+    if data.get("uri") is None:
+      current_uri = slugify(data.get("title"))
     else:
-      embed_index_flag=False
-  except IndexError:
-    pass
+      current_uri = data.get("uri")
+    page_info.append(data.get("title"))
+    page_info.append(current_uri)
+    # index check
+    if data.get("part") == "part":
+      page_info.append(0)
+    if data.get("part") == "chapter":
+      page_info.append(1)
+    if data.get("part") == "subchapter":
+      page_info.append(2)
+    if data.get("part") == "section":
+      page_info.append(3)
 
-  print(page)
-  
-  if page[3] == 1 or embed_index_flag:
-    if page[2] > index_index:
-      index_index += 1
-    elif page[2] < index_index:
-      index_index = page[2]
-    os.makedirs(f"{outdir}/{page[1]}", exist_ok=True)
-    if index_files[index_index] != 0:
-      index_files[index_index].write("```\n")
-      index_files[index_index].close()
-      index_files[index_index] = 0
-    if index_index > 0:
-      index_files[index_index-1].write(f"/{page[1]}/index.md\n")
-    index_files[index_index] = open(f"{outdir}/{page[1]}/index.md", "w", encoding="utf-8")
-    index_files[index_index].write(f"# {page[0]}\n")
-    if page[3] != 1:
-      pandoc_output = subprocess.check_output(
-        ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
-        text=True,
-      )
-      pandoc_output = rewrite_image_links(pandoc_output)
-      index_files[index_index].write(pandoc_output)
-      index_files[index_index].write("\n")
-    index_files[index_index].write("```{toctree}\n")
-  else:
-    index_files[index_index].write(f"/{page[1]}\n")
-    page_dir=os.path.dirname(f"{outdir}/{page[1]}")
-    os.makedirs(f"{page_dir}", exist_ok=True)
-    pandoc_output = subprocess.check_output(
-      ["pandoc", "-i", f"manual/include/{page[3]}", "-t", "markdown-multiline_tables-simple_tables", "-o", "-"],
-      text=True,
-    )
-    pandoc_output = rewrite_image_links(pandoc_output)
-    with open(f"{outdir}/{page[1]}.md", "w", encoding="utf-8") as markdown_file:
-      markdown_file.write(f"# {page[0]}\n")
-      markdown_file.write(pandoc_output)
-  page_index+=1
+    if data.get("include") is None:
+      page_info.append(1)
+    else:
+      page_info.append(data.get("include"))
 
-for index in index_files:
-  if index != 0:
-    index.write("```\n")
-    index.close()
+    index_list.append(page_info)
+    # print(page_info)
 
-with open(f"{outdir}/index.md", "w", encoding="utf-8") as index_file:
-  index_file.write("# index\n")
-  index_file.write("```{toctree}\n")
+  index_list=index_list[1:]
+  index_files=[0,0,0,0]
+  index_index=0
+  page_index=0
   for page in index_list:
-    if page[3] == 1 and page[2] == 0:
-      index_file.write(f"/{page[1]}/index.md\n")
-  index_file.write("```\n")
-  index_file.close()
+    try:
+      index_list[page_index+1]
+      if page[2] < index_list[page_index+1][2]:
+        embed_index_flag=True
+      else:
+        embed_index_flag=False
+    except IndexError:
+      pass
 
-wrap_grid_tables_in_markdown_tree(outdir)
+    print(page)
+    
+    if page[3] == 1 or embed_index_flag:
+      if page[2] > index_index:
+        index_index += 1
+      elif page[2] < index_index:
+        index_index = page[2]
+      os.makedirs(f"{outdir}/{page[1]}", exist_ok=True)
+      if index_files[index_index] != 0:
+        index_files[index_index].write("```\n")
+        index_files[index_index].close()
+        index_files[index_index] = 0
+      if index_index > 0:
+        index_files[index_index-1].write(f"/{page[1]}/index.md\n")
+      index_files[index_index] = open(f"{outdir}/{page[1]}/index.md", "w", encoding="utf-8")
+      index_files[index_index].write(f"# {page[0]}\n")
+      if page[3] != 1:
+        pandoc_output = convert_html_to_markdown(f"manual/include/{page[3]}")
+        index_files[index_index].write(pandoc_output)
+        index_files[index_index].write("\n")
+      index_files[index_index].write("```{toctree}\n")
+    else:
+      index_files[index_index].write(f"/{page[1]}\n")
+      page_dir=os.path.dirname(f"{outdir}/{page[1]}")
+      os.makedirs(f"{page_dir}", exist_ok=True)
+      pandoc_output = convert_html_to_markdown(f"manual/include/{page[3]}")
+      with open(f"{outdir}/{page[1]}.md", "w", encoding="utf-8") as markdown_file:
+        markdown_file.write(f"# {page[0]}\n")
+        markdown_file.write(pandoc_output)
+    page_index+=1
+
+  for index in index_files:
+    if index != 0:
+      index.write("```\n")
+      index.close()
+
+  with open(f"{outdir}/index.md", "w", encoding="utf-8") as index_file:
+    index_file.write("# index\n")
+    index_file.write("```{toctree}\n")
+    for page in index_list:
+      if page[3] == 1 and page[2] == 0:
+        index_file.write(f"/{page[1]}/index.md\n")
+    index_file.write("```\n")
+    index_file.close()
+
+  wrap_grid_tables_in_markdown_tree(outdir)
+
+
+if __name__ == "__main__":
+  main()
