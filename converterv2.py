@@ -7,6 +7,10 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 MARKDOWN_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 HTML_IMAGE_RE = re.compile(r'(<img\b[^>]*\bsrc=["\'])([^"\']+)(["\'])', re.IGNORECASE)
 MALFORMED_KBD_RE = re.compile(r"(<kbd\b[^>]*>[^<]*)<kbd>", re.IGNORECASE)
+HEADING_ANCHOR_RE = re.compile(
+  r"^(?P<heading>[ \t]{0,3}#{1,6}[ \t]+.*?)[ \t]+\{#(?P<anchor>[^}\r\n]+)\}[ \t]*$",
+  re.MULTILINE,
+)
 
 
 def parse_block(block: str) -> dict[str, str]:
@@ -147,6 +151,10 @@ def sanitize_html_for_pandoc(text: str) -> str:
   return MALFORMED_KBD_RE.sub(r"\1</kbd>", text)
 
 
+def move_heading_anchors(text: str) -> str:
+  return HEADING_ANCHOR_RE.sub(r"{#\g<anchor>}\n\g<heading>", text)
+
+
 def convert_html_to_markdown(include_path: str) -> str:
   with open(include_path, "r", encoding="utf-8") as html_file:
     html_input = sanitize_html_for_pandoc(html_file.read())
@@ -156,7 +164,7 @@ def convert_html_to_markdown(include_path: str) -> str:
     input=html_input,
     text=True,
   )
-  return rewrite_image_links(pandoc_output)
+  return move_heading_anchors(rewrite_image_links(pandoc_output))
 
 
 def main() -> None:
