@@ -7,14 +7,14 @@ import converterv2
 
 
 class ConverterV2Tests(unittest.TestCase):
-  def test_move_heading_anchors_before_headings(self) -> None:
+  def test_move_heading_anchors_after_headings(self) -> None:
     markdown = "## Heading {#heading}\n\n### Nested heading {#nested}\n"
 
     normalized = converterv2.move_heading_anchors(markdown)
 
     self.assertEqual(
       normalized,
-      "{#heading}\n## Heading\n\n{#nested}\n### Nested heading\n",
+      "## Heading\n{#heading}\n\n### Nested heading\n{#nested}\n",
     )
 
   def test_sanitize_html_for_pandoc_fixes_malformed_kbd_tag(self) -> None:

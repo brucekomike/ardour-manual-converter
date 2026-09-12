@@ -152,7 +152,7 @@ def sanitize_html_for_pandoc(text: str) -> str:
 
 
 def move_heading_anchors(text: str) -> str:
-  return HEADING_ANCHOR_RE.sub(r"{#\g<anchor>}\n\g<heading>", text)
+  return HEADING_ANCHOR_RE.sub(r"\g<heading>\n{#\g<anchor>}", text)
 
 
 def convert_html_to_markdown(include_path: str) -> str:
