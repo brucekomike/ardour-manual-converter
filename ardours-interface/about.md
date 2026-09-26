@@ -1,0 +1,280 @@
+# Ardour's Interface Overview
+In Ardour, work is done in one of four windows: the [Editor]{.dfn}, the
+[Mixer]{.dfn}, the [Recorder]{.dfn}, or the [Cue Grid]{.dfn}.
+
+<figure class="imagemap" style="width:100%;">
+<img src="https://raw.githubusercontent.com/Ardour/manual/refs/heads/master/source/images/editor_map.png" width="900" height="502"
+alt="The Editor window" /> <a href="@@main-menu" class="area"
+style="left: 0px; top: 0px; width: 168px; height: 13px;"></a> <a
+href="@@status-bar" class="area"
+style="left: 746px; top: 0px; width: 154px; height: 13px;"></a> <a
+href="@@transport-bar" class="area"
+style="left: 0px; top: 13px; width: 99px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 99px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#latency-compensation-info" class="area"
+style="left: 168px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#playhead_options" class="area"
+style="left: 237px; top: 13px; width: 51px; height: 29px;"></a> <a
+href="@@transport-clocks" class="area"
+style="left: 288px; top: 13px; width: 183px; height: 29px;"></a> <a
+href="@@other-toolbar-items#status_indicators" class="area"
+style="left: 471px; top: 13px; width: 28px; height: 29px;"></a> <a
+href="@@other-toolbar-items#monitor_section_info" class="area"
+style="left: 499px; top: 13px; width: 26px; height: 29px;"></a> <a
+href="@@mixing-linear-nonlinear-workflows" class="area"
+style="left: 525px; top: 13px; width: 42px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 567px; top: 13px; width: 65px; height: 29px;"></a> <a
+href="@@mini-timeline" class="area"
+style="left: 632px; top: 13px; width: 187px; height: 29px;"></a> <a
+href="@@other-toolbar-items#mode_selector" class="area"
+style="left: 819px; top: 13px; width: 81px; height: 29px;"></a> <a
+href="@@toolbox" class="area"
+style="left: 53px; top: 42px; width: 171px; height: 17px;"></a> <a
+href="@@grid-controls" class="area"
+style="left: 224px; top: 42px; width: 64px; height: 17px;"></a> <a
+href="@@nudge-controls" class="area"
+style="left: 288px; top: 42px; width: 73px; height: 17px;"></a> <a
+href="@@zoom-controls" class="area"
+style="left: 746px; top: 42px; width: 154px; height: 17px;"></a> <a
+href="@@ruler" class="area"
+style="left: 53px; top: 59px; width: 693px; height: 65px;"></a> <a
+href="@@editor-lists" class="area"
+style="left: 746px; top: 59px; width: 154px; height: 442px;"></a> <a
+href="@@summary" class="area"
+style="left: 53px; top: 458px; width: 693px; height: 43px;"></a> <a
+href="@@track-and-bus-groups" class="area"
+style="left: 53px; top: 124px; width: 10px; height: 334px;"></a> <a
+href="@@automation" class="area"
+style="left: 63px; top: 174px; width: 683px; height: 51px;"></a> <a
+href="@@control-masters-mixer-strips" class="area"
+style="left: 63px; top: 410px; width: 683px; height: 48px;"></a> <a
+href="@@audio-track-controls" class="area"
+style="left: 63px; top: 139px; width: 683px; height: 35px;"></a> <a
+href="@@midi-track-controls" class="area"
+style="left: 63px; top: 225px; width: 683px; height: 102px;"></a> <a
+href="@@bus-controls" class="area"
+style="left: 63px; top: 346px; width: 683px; height: 64px;"></a> <a
+href="@@bus-controls" class="area"
+style="left: 63px; top: 124px; width: 683px; height: 15px;"></a> <a
+href="@@audio-track-controls" class="area"
+style="left: 63px; top: 327px; width: 683px; height: 19px;"></a> <a
+href="@@audiomidi-mixer-strips" class="area"
+style="left: 0px; top: 42px; width: 53px; height: 460px;"></a>
+<figcaption>The Editor window. Clicking on a section accesses its
+description.</figcaption>
+</figure>
+
+<figure class="imagemap" style="width:100%;">
+<img src="https://raw.githubusercontent.com/Ardour/manual/refs/heads/master/source/images/mixer_map.png" width="900" height="502"
+alt="The Mixer window" /> <a href="@@main-menu" class="area"
+style="left: 0px; top: 0px; width: 168px; height: 13px;"></a> <a
+href="@@status-bar" class="area"
+style="left: 746px; top: 0px; width: 154px; height: 13px;"></a> <a
+href="@@transport-bar" class="area"
+style="left: 0px; top: 13px; width: 99px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 99px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#latency-compensation-info" class="area"
+style="left: 168px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#playhead_options" class="area"
+style="left: 237px; top: 13px; width: 51px; height: 29px;"></a> <a
+href="@@transport-clocks" class="area"
+style="left: 288px; top: 13px; width: 183px; height: 29px;"></a> <a
+href="@@other-toolbar-items#status_indicators" class="area"
+style="left: 471px; top: 13px; width: 28px; height: 29px;"></a> <a
+href="@@other-toolbar-items#monitor_section_info" class="area"
+style="left: 499px; top: 13px; width: 26px; height: 29px;"></a> <a
+href="@@mixing-linear-nonlinear-workflows" class="area"
+style="left: 525px; top: 13px; width: 42px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 567px; top: 13px; width: 65px; height: 29px;"></a> <a
+href="@@mini-timeline" class="area"
+style="left: 632px; top: 13px; width: 187px; height: 29px;"></a> <a
+href="@@other-toolbar-items#mode_selector" class="area"
+style="left: 819px; top: 13px; width: 81px; height: 29px;"></a> <a
+href="@@favorite-plugins-window" class="area"
+style="left: 0px; top: 42px; width: 118px; height: 149px;"></a> <a
+href="@@strips-list" class="area"
+style="left: 0px; top: 191px; width: 118px; height: 99px;"></a> <a
+href="@@the-track-and-bus-group-list" class="area"
+style="left: 0px; top: 290px; width: 118px; height: 104px;"></a> <a
+href="@@mixer-scenes" class="area"
+style="left: 0px; top: 394px; width: 118px; height: 107px;"></a> <a
+href="@@track-and-bus-groups" class="area"
+style="left: 118px; top: 42px; width: 521px; height: 11px;"></a> <a
+href="@@monitor-section" class="area"
+style="left: 821px; top: 42px; width: 79px; height: 459px;"></a> <a
+href="@@master-bus-strip" class="area"
+style="left: 769px; top: 42px; width: 52px; height: 459px;"></a> <a
+href="@@foldback-strip" class="area"
+style="left: 711px; top: 42px; width: 58px; height: 459px;"></a> <a
+href="@@adding-tracks-busses-and-vcas" class="area"
+style="left: 691px; top: 42px; width: 20px; height: 459px;"></a> <a
+href="@@control-masters-mixer-strips" class="area"
+style="left: 639px; top: 42px; width: 52px; height: 459px;"></a> <a
+href="@@audiomidi-busses-mixer-strips" class="area"
+style="left: 531px; top: 53px; width: 108px; height: 448px;"></a> <a
+href="@@audiomidi-mixer-strips" class="area"
+style="left: 118px; top: 53px; width: 413px; height: 448px;"></a>
+<figcaption>The Mixer window. Clicking on a section accesses its
+description.</figcaption>
+</figure>
+
+<figure class="imagemap" style="width:100%;">
+<img src="https://raw.githubusercontent.com/Ardour/manual/refs/heads/master/source/images/recorder_map.png" width="900" height="502"
+alt="The Recorder window" /> <a href="@@main-menu" class="area"
+style="left: 0px; top: 0px; width: 168px; height: 13px;"></a> <a
+href="@@status-bar" class="area"
+style="left: 746px; top: 0px; width: 154px; height: 13px;"></a> <a
+href="@@transport-bar" class="area"
+style="left: 0px; top: 13px; width: 99px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 99px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#latency-compensation-info" class="area"
+style="left: 168px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#playhead_options" class="area"
+style="left: 237px; top: 13px; width: 51px; height: 29px;"></a> <a
+href="@@transport-clocks" class="area"
+style="left: 288px; top: 13px; width: 183px; height: 29px;"></a> <a
+href="@@other-toolbar-items#status_indicators" class="area"
+style="left: 471px; top: 13px; width: 28px; height: 29px;"></a> <a
+href="@@other-toolbar-items#monitor_section_info" class="area"
+style="left: 499px; top: 13px; width: 26px; height: 29px;"></a> <a
+href="@@mixing-linear-nonlinear-workflows" class="area"
+style="left: 525px; top: 13px; width: 42px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 567px; top: 13px; width: 65px; height: 29px;"></a> <a
+href="@@mini-timeline" class="area"
+style="left: 632px; top: 13px; width: 187px; height: 29px;"></a> <a
+href="@@other-toolbar-items#mode_selector" class="area"
+style="left: 819px; top: 13px; width: 81px; height: 29px;"></a> <a
+href="@@recorder#recorder_last_take_manager" class="area"
+style="left: 0px; top: 42px; width: 72px; height: 24px;"></a> <a
+href="@@recorder#recorder_global_arm" class="area"
+style="left: 72px; top: 42px; width: 45px; height: 24px;"></a> <a
+href="@@recorder#recorder_monitoring_options" class="area"
+style="left: 117px; top: 42px; width: 53px; height: 24px;"></a> <a
+href="@@recorder#recorder_new_playlist" class="area"
+style="left: 170px; top: 42px; width: 75px; height: 24px;"></a> <a
+href="@@recorder#recorder_disk_space" class="area"
+style="left: 810px; top: 42px; width: 90px; height: 24px;"></a> <a
+href="@@recorder#recorder_simplified_session" class="area"
+style="left: 9px; top: 66px; width: 891px; height: 331px;"></a> <a
+href="@@recorder#recorder_global_input_channel" class="area"
+style="left: 0px; top: 397px; width: 396px; height: 40px;"></a> <a
+href="@@track-and-bus-groups" class="area"
+style="left: 0px; top: 76px; width: 9px; height: 321px;"></a>
+<figcaption>The Recorder window. Clicking on a section accesses its
+description.</figcaption>
+</figure>
+
+<figure class="imagemap" style="width:100%;">
+<img src="https://raw.githubusercontent.com/Ardour/manual/refs/heads/master/source/images/cue_map.png" width="900" height="502"
+alt="The Cue Grid" /> <a href="@@main-menu" class="area"
+style="left: 0px; top: 0px; width: 168px; height: 13px;"></a> <a
+href="@@status-bar" class="area"
+style="left: 746px; top: 0px; width: 154px; height: 13px;"></a> <a
+href="@@transport-bar" class="area"
+style="left: 0px; top: 13px; width: 99px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 99px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#latency-compensation-info" class="area"
+style="left: 168px; top: 13px; width: 69px; height: 29px;"></a> <a
+href="@@other-toolbar-items#playhead_options" class="area"
+style="left: 237px; top: 13px; width: 51px; height: 29px;"></a> <a
+href="@@transport-clocks" class="area"
+style="left: 288px; top: 13px; width: 183px; height: 29px;"></a> <a
+href="@@other-toolbar-items#status_indicators" class="area"
+style="left: 471px; top: 13px; width: 28px; height: 29px;"></a> <a
+href="@@other-toolbar-items#monitor_section_info" class="area"
+style="left: 499px; top: 13px; width: 26px; height: 29px;"></a> <a
+href="@@mixing-linear-nonlinear-workflows" class="area"
+style="left: 525px; top: 13px; width: 42px; height: 29px;"></a> <a
+href="@@selection-and-punch-clocks" class="area"
+style="left: 567px; top: 13px; width: 65px; height: 29px;"></a> <a
+href="@@mini-timeline" class="area"
+style="left: 632px; top: 13px; width: 187px; height: 29px;"></a> <a
+href="@@other-toolbar-items#mode_selector" class="area"
+style="left: 819px; top: 13px; width: 81px; height: 29px;"></a> <a
+href="@@cue-window-elements#cue_window_grid" class="area"
+style="left: 0px; top: 42px; width: 274px; height: 146px;"></a> <a
+href="@@cue-window-elements#cue_window_sidebar" class="area"
+style="left: 622px; top: 42px; width: 278px; height: 380px;"></a> <a
+href="@@cue-window-elements#cue_window_clip_options" class="area"
+style="left: 0px; top: 422px; width: 316px; height: 80px;"></a> <a
+href="@@cue-window-elements#cue_window_mixer_channels" class="area"
+style="left: 0px; top: 188px; width: 274px; height: 234px;"></a>
+<figcaption>The Cue Grid window. Clicking on a section accesses its
+description.</figcaption>
+</figure>
+
+The Editor, Mixer, Recorder and Clip Launcher share the same toolbar
+(the top of the window). The sections displayed in this toolbar can be
+customized to the user\'s workflow, by checking options in [Preferences
+\> Appearance \> Toolbar]{.kbd .menu}.
+
+Switching between these 4 different modes is done:
+
+-   with the [Mode Selector
+    buttons](@@other-toolbar-items#mode_selector) in the upper right
+-   with the menu [Window \> Editor *(or Mixer / Recorder / Cue Grid)*
+    \> Show]{.kbd .menu}.
+
+Additionally, the [M]{.kbd .mod2} shortcut
+
+allows switching between the Editor and Mixer.
+
+Multiple windows can be visible at the same time (e.g. for a
+multi-monitor setup) using [Window \> Editor *(or Mixer / Recorder / Cue
+Grid)* \> Detach]{.kbd .menu} option in the same submenu.
+
+## The Editor
+
+The [Editor]{.dfn} window includes the editor track [canvas]{.dfn} where
+audio and MIDI data can be arranged along a timeline. This is the window
+where editing and arranging a project is done. The window has a general
+\"horizontal\" sense to it: the timeline flows from left to right, the
+playhead showing the current position in the session moves from left to
+right---the window really represents [time]{.dfn} in a fairly literal
+way.
+
+It is possible to show a single channel strip in the editor window, and
+some people find this enough to work on mixing without actually opening
+the mixer window. Most of the time though, both of these windows will be
+needed at various stages of a session\'s lifetime.
+
+## The Mixer
+
+The [Mixer]{.dfn} window represents signal flow and is the window that
+will probably be used most when mixing a session. It includes [channel
+strips]{.dfn} for each track and bus in the session. It has a general
+\"vertical\" sense to it: signals flow from the top of each channel
+strip through the processing elements in the strip to reach the output
+listed at the bottom.
+
+To learn more about the process of mixing, see [Mixing](@@basic-mixing).
+
+## The Recorder
+
+The [Recorder]{.dfn} window is a very specialized view that provides a
+compact view of all track\'s record and monitor status, and a simplified
+timeline that keeps everything in view at once. Most of the information
+that is shown in this mode is already available in Mixer or Editor mode,
+but the Recorder aims at having everything in sight and under control
+while tracking a performance.
+
+The Recorder is covered in great detail in [its own page](@@recorder).
+
+## The Cue Grid
+
+The [Cue Grid]{.dfn} window, unlike the rest of Ardour, allows for a
+non-linear workflow. It is a clip launcher, that allows to chain and
+combine various loops and samples, and program events.
+
+Instead of anchoring these samples or loops on a timeline, the Cue Grid
+gives them instruction on when they are triggered, how they are played,
+what happens at the end of the clip, etc...
+
+The [Cue](@@cue) section of this manual describes this worfkow.
