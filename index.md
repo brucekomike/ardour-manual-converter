@@ -1,0 +1,23 @@
+# index
+```{toctree}
+/about-ardour/index.md
+/introducing-ardour/index.md
+/ardour-configuration/index.md
+/ardours-interface/index.md
+/sessions-tracks/index.md
+/playback/index.md
+/recording/index.md
+/importing-and-exporting/index.md
+/editing-and-arranging/index.md
+/midi/index.md
+/clips/index.md
+/cue/index.md
+/arranging/index.md
+/mixing/index.md
+/bundled-plugins/index.md
+/video/index.md
+/using-control-surfaces/index.md
+/troubleshooting/index.md
+/scripting/index.md
+/appendix/index.md
+```

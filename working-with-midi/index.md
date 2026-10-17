@@ -1,0 +1,37 @@
+# MIDI Editing
+Ardour\'s handling of MIDI and how it allows the editing of MIDI data
+differs in key ways from most other DAWs and MIDI sequencers. Also,
+unlike its handling of audio data, the editing of MIDI data in Ardour is
+necessarily *destructive* by nature.
+
+## Key features of Ardour MIDI editing
+
+-   Editing is done either in-place and in-window, in a separate
+    pianoroll window, or a bottom panel editor. Notes are edited right
+    where they appear.
+-   Editing note information in Ardour occurs in only a single region.
+    There is no way currently to edit note data for multiple regions at
+    the same time; so, for example, notes cannot be selected in several
+    regions at once and then all deleted. However they can be copied and
+    pasted from one region to another.
+-   Every MIDI track has its own MIDI port for input; it may have an
+    arbitrary combination of audio and MIDI outputs, depending on the
+    signal processing in the track.
+-   Full automation for MIDI tracks, integrated with the handling of all
+    MIDI CC data for each track.
+-   Controllers (CC data) can be set to discrete or continuous modes
+    (the latter will interpolate between control points and send
+    additional data).
+-   There is a Normal and a Percussive mode for note data editing.
+-   The visible note range is controlled by a [scroomer]{.dfn} widget,
+    which is a combination scroll/zoom tool for altering the zoom level
+    and range of visible MIDI data. When in internal edit mode, you can
+    also use scroll operations to adjust the visible range in various
+    ways.
+
+```{toctree}
+/working-with-midi/pianoroll-window
+/working-with-midi/pianoroll-window-multiple-regions
+/working-with-midi/controlling-midi-range
+/working-with-midi/add-new-notes/index.md
+```

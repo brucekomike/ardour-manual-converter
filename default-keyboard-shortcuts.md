@@ -1,0 +1,491 @@
+# Default Keyboard Shortcuts
+## Window: Editor
+
+| Aligning with the Edit Point                         |                                                            |
+|------------------------------------------------------|------------------------------------------------------------|
+| [x]{.kbd}                                            | Align Sync Relative                                        |
+| []{.kbd .mod3}[a]{.kbd}                              | Align Sync                                                 |
+| []{.kbd .mod1}[]{.kbd .mod3}[a]{.kbd}                | Align Start Relative                                       |
+| []{.kbd .mod2}[a]{.kbd}                              | Align End                                                  |
+| []{.kbd .mod1}[]{.kbd .mod2}[a]{.kbd}                | Align Start                                                |
+| Basic Editing                                        |                                                            |
+| [/]{.kbd}                                            | Fade Range Selection                                       |
+| [h]{.kbd}                                            | Play Selected Regions                                      |
+| [p]{.kbd}                                            | Playhead to Mouse                                          |
+| [BackSpace]{.kbd}                                    | Delete                                                     |
+| [Delete]{.kbd}                                       | Delete                                                     |
+| []{.kbd .mod3}[\"]{.kbd}                             | New Playlist For Selected Tracks                           |
+| []{.kbd .mod3}[:]{.kbd}                              | Copy Playlist For Selected Tracks                          |
+| []{.kbd .mod3}[question]{.kbd}                       | Show Playlist Selector                                     |
+| []{.kbd .mod3}[f]{.kbd}                              | Stationary Playhead                                        |
+| []{.kbd .mod3}[l]{.kbd}                              | Show Editor List                                           |
+| []{.kbd .mod3}[s]{.kbd}                              | Show Summary                                               |
+| []{.kbd .mod3}[{]{.kbd}                              | Overlaid layer display                                     |
+| []{.kbd .mod3}[bar]{.kbd}                            | Raise to Top                                               |
+| []{.kbd .mod3}[}]{.kbd}                              | Stacked layer display                                      |
+| []{.kbd .mod1}[c]{.kbd}                              | Copy                                                       |
+| []{.kbd .mod1}[d]{.kbd}                              | Duplicate                                                  |
+| []{.kbd .mod1}[f]{.kbd}                              | Follow Playhead                                            |
+| []{.kbd .mod1}[r]{.kbd}                              | Redo                                                       |
+| []{.kbd .mod1}[v]{.kbd}                              | Paste                                                      |
+| []{.kbd .mod1}[x]{.kbd}                              | Cut                                                        |
+| []{.kbd .mod1}[y]{.kbd}                              | Redo                                                       |
+| []{.kbd .mod1}[z]{.kbd}                              | Undo (capture)                                             |
+| []{.kbd .mod1}[]{.kbd .mod3}[space]{.kbd}            | Play from Edit Point and Return                            |
+| []{.kbd .mod1}[]{.kbd .mod3}[\"]{.kbd}               | New Playlist For All Tracks                                |
+| []{.kbd .mod1}[]{.kbd .mod3}[:]{.kbd}                | Copy Playlist For All Tracks                               |
+| []{.kbd .mod1}[]{.kbd .mod3}[c]{.kbd}                | Crop                                                       |
+| []{.kbd .mod1}[]{.kbd .mod3}[r]{.kbd}                | Set Range to Selected Regions                              |
+| []{.kbd .mod1}[]{.kbd .mod3}[z]{.kbd}                | Redo                                                       |
+| []{.kbd .mod2}[d]{.kbd}                              | Multi-Duplicate\...                                        |
+| []{.kbd .mod2}[v]{.kbd}                              | Video Monitor                                              |
+| []{.kbd .mod2}[]{.kbd .mod3}[c]{.kbd}                | Consolidate Range                                          |
+| []{.kbd .mod1}[]{.kbd .mod2}[]{.kbd .mod3}[\"]{.kbd} | New Playlist For Rec-Armed Tracks                          |
+| []{.kbd .mod1}[]{.kbd .mod2}[]{.kbd .mod3}[:]{.kbd}  | Copy Playlist For Rec-Armed Tracks                         |
+| Changing What\'s Visible                             |                                                            |
+| [-]{.kbd}                                            | Zoom Out                                                   |
+| [=]{.kbd}                                            | Zoom In                                                    |
+| [f]{.kbd}                                            | Fit Selection (Vertical)                                   |
+| [Up]{.kbd}                                           | Step Tracks Up                                             |
+| [Down]{.kbd}                                         | Step Tracks Down                                           |
+| [Page_Up]{.kbd}                                      | Scroll Tracks Up                                           |
+| [Page_Down]{.kbd}                                    | Scroll Tracks Down                                         |
+| []{.kbd .mod3}[+]{.kbd}                              | Expand Track Height                                        |
+| []{.kbd .mod3}[e]{.kbd}                              | Show Editor Mixer                                          |
+| []{.kbd .mod3}[z]{.kbd}                              | Toggle Zoom State                                          |
+| []{.kbd .mod1}[Up]{.kbd}                             | Move Selected Tracks Up                                    |
+| []{.kbd .mod1}[Down]{.kbd}                           | Move Selected Tracks Down                                  |
+| []{.kbd .mod2}[]{.kbd .mod3}[+]{.kbd}                | Shrink Track Height                                        |
+| []{.kbd .mod2}[]{.kbd .mod3}[underscore]{.kbd}       | Zoom to Session                                            |
+| Defining Loop, Punch Range and Tempo Changes         |                                                            |
+| [0]{.kbd}                                            | Set Tempo from Edit Range = Bar                            |
+| [9]{.kbd}                                            | Set Tempo from Region = Bar                                |
+| [\[]{.kbd}                                           | Set Punch from Selection                                   |
+| [\]]{.kbd}                                           | Set Loop from Selection                                    |
+| Editing with Edit Point                              |                                                            |
+| [\']{.kbd}                                           | To Previous Region Sync                                    |
+| [1]{.kbd}                                            | Cycle Edit Mode                                            |
+| [2]{.kbd}                                            | Change Edit Point                                          |
+| [;]{.kbd}                                            | To Next Region Sync                                        |
+| [i]{.kbd}                                            | Insert Region from Source List                             |
+| [j]{.kbd}                                            | Trim Start at Edit Point                                   |
+| [k]{.kbd}                                            | Trim End at Edit Point                                     |
+| []{.kbd .mod1}[2]{.kbd}                              | Change Edit Point Including Marker                         |
+| Editor Views                                         |                                                            |
+| [F1]{.kbd}                                           | Go to View 1                                               |
+| [F2]{.kbd}                                           | Go to View 2                                               |
+| [F3]{.kbd}                                           | Go to View 3                                               |
+| [F4]{.kbd}                                           | Go to View 4                                               |
+| [F5]{.kbd}                                           | Go to View 5                                               |
+| [F6]{.kbd}                                           | Go to View 6                                               |
+| [F7]{.kbd}                                           | Go to View 7                                               |
+| [F8]{.kbd}                                           | Go to View 8                                               |
+| [F9]{.kbd}                                           | Go to View 9                                               |
+| [F10]{.kbd}                                          | Go to View 10                                              |
+| [F11]{.kbd}                                          | Go to View 11                                              |
+| [F12]{.kbd}                                          | Go to View 12                                              |
+| []{.kbd .mod1}[F1]{.kbd}                             | Save View 1                                                |
+| []{.kbd .mod1}[F2]{.kbd}                             | Save View 2                                                |
+| []{.kbd .mod1}[F3]{.kbd}                             | Save View 3                                                |
+| []{.kbd .mod1}[F4]{.kbd}                             | Save View 4                                                |
+| []{.kbd .mod1}[F5]{.kbd}                             | Save View 5                                                |
+| []{.kbd .mod1}[F6]{.kbd}                             | Save View 6                                                |
+| []{.kbd .mod1}[F7]{.kbd}                             | Save View 7                                                |
+| []{.kbd .mod1}[F8]{.kbd}                             | Save View 8                                                |
+| []{.kbd .mod1}[F9]{.kbd}                             | Save View 9                                                |
+| []{.kbd .mod1}[F10]{.kbd}                            | Save View 10                                               |
+| []{.kbd .mod1}[F11]{.kbd}                            | Save View 11                                               |
+| []{.kbd .mod1}[F12]{.kbd}                            | Save View 12                                               |
+| Grid Settings + Editor Modes                         |                                                            |
+| [4]{.kbd}                                            | Toggle Snap                                                |
+| [5]{.kbd}                                            | Previous Quantize Grid Choice                              |
+| [6]{.kbd}                                            | Next Quantize Grid Choice                                  |
+| Markers & Locations                                  |                                                            |
+| []{.kbd .mod1}[]{.kbd .mod3}[Left]{.kbd}             | To Previous Region Boundary                                |
+| []{.kbd .mod1}[]{.kbd .mod3}[Right]{.kbd}            | To Next Region Boundary                                    |
+| Mouse Modes                                          |                                                            |
+| [3]{.kbd}                                            | Smart Mode                                                 |
+| [c]{.kbd}                                            | Cut Tool                                                   |
+| [d]{.kbd}                                            | Note Drawing Tool                                          |
+| [e]{.kbd}                                            | Content Tool                                               |
+| [g]{.kbd}                                            | Object Tool                                                |
+| [r]{.kbd}                                            | Range Tool                                                 |
+| [t]{.kbd}                                            | Time FX Tool                                               |
+| [z]{.kbd}                                            | Zoom to Selection                                          |
+| Moving the Playhead in the Editor                    |                                                            |
+| []{.kbd .mod1}[Left]{.kbd}                           | Move to Previous Transient                                 |
+| []{.kbd .mod1}[Right]{.kbd}                          | Move to Next Transient                                     |
+| []{.kbd .mod2}[]{.kbd .mod3}[Left]{.kbd}             | Playhead to Previous Region Boundary                       |
+| []{.kbd .mod2}[]{.kbd .mod3}[Right]{.kbd}            | Playhead to Next Region Boundary                           |
+| []{.kbd .mod1}[]{.kbd .mod2}[Left]{.kbd}             | Playhead to Previous Region Sync                           |
+| []{.kbd .mod1}[]{.kbd .mod2}[Right]{.kbd}            | Playhead to Next Region Sync                               |
+| Region Operations                                    |                                                            |
+| [m]{.kbd}                                            | Add Region Cue Marker                                      |
+| [s]{.kbd}                                            | Split/Separate                                             |
+| [v]{.kbd}                                            | Set Sync Position                                          |
+| []{.kbd .mod3}[u]{.kbd}                              | Unlink from unselected                                     |
+| []{.kbd .mod1}[/]{.kbd}                              | Set Fade In Length                                         |
+| []{.kbd .mod1}[\\]{.kbd}                             | Set Fade Out Length                                        |
+| []{.kbd .mod1}[j]{.kbd}                              | Trim to Previous                                           |
+| []{.kbd .mod1}[k]{.kbd}                              | Trim to Next                                               |
+| []{.kbd .mod2}[0]{.kbd}                              | Opaque                                                     |
+| []{.kbd .mod2}[1]{.kbd}                              | Mute                                                       |
+| []{.kbd .mod2}[2]{.kbd}                              | Move to Original Position                                  |
+| []{.kbd .mod2}[3]{.kbd}                              | Normalize\...                                              |
+| []{.kbd .mod2}[4]{.kbd}                              | Reverse                                                    |
+| []{.kbd .mod2}[5]{.kbd}                              | Quantize\...                                               |
+| []{.kbd .mod2}[6]{.kbd}                              | Boost Gain                                                 |
+| []{.kbd .mod2}[7]{.kbd}                              | Cut Gain                                                   |
+| []{.kbd .mod2}[8]{.kbd}                              | Pitch Shift\...                                            |
+| []{.kbd .mod2}[9]{.kbd}                              | Rename\...                                                 |
+| []{.kbd .mod2}[f]{.kbd}                              | Rhythm Ferret\...                                          |
+| []{.kbd .mod2}[]{.kbd .mod3}[r]{.kbd}                | Add Single Range Marker                                    |
+| []{.kbd .mod1}[]{.kbd .mod2}[e]{.kbd}                | Export\...                                                 |
+| Selecting                                            |                                                            |
+| [u]{.kbd}                                            | Select All Inside Edit Range                               |
+| [Numpad +]{.kbd}                                     | Nudge Later                                                |
+| [Numpad -]{.kbd}                                     | Nudge Earlier                                              |
+| []{.kbd .mod3}[d]{.kbd}                              | Select All in Punch Range                                  |
+| []{.kbd .mod1}[a]{.kbd}                              | Select All Objects                                         |
+| []{.kbd .mod1}[l]{.kbd}                              | Select All in Loop Range                                   |
+| []{.kbd .mod1}[u]{.kbd}                              | Select All Overlapping Edit Range                          |
+| []{.kbd .mod1}[]{.kbd .mod3}[e]{.kbd}                | Select All After Edit Point                                |
+| []{.kbd .mod2}[Up]{.kbd}                             | Select Previous Track or Bus                               |
+| []{.kbd .mod2}[Down]{.kbd}                           | Select Next Track or Bus                                   |
+| []{.kbd .mod2}[]{.kbd .mod3}[Up]{.kbd}               | Select Previous Strip                                      |
+| []{.kbd .mod2}[]{.kbd .mod3}[Down]{.kbd}             | Select Next Strip                                          |
+| Track Actions from the Editor                        |                                                            |
+| []{.kbd .mod3}[b]{.kbd}                              | Toggle Record Enable                                       |
+| []{.kbd .mod2}[i]{.kbd}                              | Toggle MIDI Input Active for Editor-Selected Tracks/Busses |
+| []{.kbd .mod2}[s]{.kbd}                              | Toggle Solo                                                |
+
+## Window: Global
+
+| Global Editing Operations                 |                                                   |
+|-------------------------------------------|---------------------------------------------------|
+| [,]{.kbd}                                 | Start Range                                       |
+| [.]{.kbd}                                 | Finish Range                                      |
+| [Escape]{.kbd}                            | Escape (deselect all)                             |
+| []{.kbd .mod1}[,]{.kbd}                   | Start Punch Range                                 |
+| []{.kbd .mod1}[.]{.kbd}                   | Finish Punch Range                                |
+| []{.kbd .mod1}[Numpad Up]{.kbd}           | Finish Range                                      |
+| []{.kbd .mod1}[Numpad Down]{.kbd}         | Start Range                                       |
+| []{.kbd .mod2}[,]{.kbd}                   | Start Loop Range                                  |
+| []{.kbd .mod2}[.]{.kbd}                   | Finish Loop Range                                 |
+| Global MIDI commands                      |                                                   |
+| []{.kbd .mod1}[\`]{.kbd}                  | Panic (Send MIDI all-notes-off)                   |
+| Global Marker Operations                  |                                                   |
+| [q]{.kbd}                                 | Jump to Previous Mark                             |
+| [w]{.kbd}                                 | Jump to Next Mark                                 |
+| [Tab]{.kbd}                               | Add Mark from Playhead                            |
+| [Numpad Enter]{.kbd}                      | Add Mark from Playhead                            |
+| []{.kbd .mod1}[Tab]{.kbd}                 | Remove Mark at Playhead                           |
+| []{.kbd .mod1}[Numpad Enter]{.kbd}        | Remove Mark at Playhead                           |
+| []{.kbd .mod1}[Numpad Left]{.kbd}         | Jump to Previous Mark                             |
+| []{.kbd .mod1}[Numpad Right]{.kbd}        | Jump to Next Mark                                 |
+| Global Monitor Operations                 |                                                   |
+| []{.kbd .mod1}[m]{.kbd}                   | Mute                                              |
+| []{.kbd .mod1}[]{.kbd .mod3}[m]{.kbd}     | Dim                                               |
+| []{.kbd .mod1}[]{.kbd .mod2}[m]{.kbd}     | Mono                                              |
+| Global NumPad Transport Functions         |                                                   |
+| [Numpad -]{.kbd}                          | Numpad Decimal                                    |
+| [Numpad .]{.kbd}                          | Numpad Decimal                                    |
+| [Numpad 0]{.kbd}                          | Numpad 0                                          |
+| [Numpad 1]{.kbd}                          | Numpad 1                                          |
+| [Numpad 2]{.kbd}                          | Numpad 2                                          |
+| [Numpad 3]{.kbd}                          | Numpad 3                                          |
+| [Numpad 4]{.kbd}                          | Numpad 4                                          |
+| [Numpad 5]{.kbd}                          | Numpad 5                                          |
+| [Numpad 6]{.kbd}                          | Numpad 6                                          |
+| [Numpad 7]{.kbd}                          | Numpad 7                                          |
+| [Numpad 8]{.kbd}                          | Numpad 8                                          |
+| [Numpad 9]{.kbd}                          | Numpad 9                                          |
+| Global Playhead Operations                |                                                   |
+| [Return]{.kbd}                            | Go to Start                                       |
+| [Home]{.kbd}                              | Go to Start                                       |
+| [Left]{.kbd}                              | Playhead to Previous Grid                         |
+| [Right]{.kbd}                             | Playhead to Next Grid                             |
+| [End]{.kbd}                               | Go to End                                         |
+| []{.kbd .mod2}[Left]{.kbd}                | Nudge Playhead Backward                           |
+| []{.kbd .mod2}[Right]{.kbd}               | Nudge Playhead Forward                            |
+| Global Session & File Handling            |                                                   |
+| []{.kbd .mod1}[e]{.kbd}                   | Quick Audio Export\...                            |
+| []{.kbd .mod1}[i]{.kbd}                   | Import                                            |
+| []{.kbd .mod1}[n]{.kbd}                   | New\...                                           |
+| []{.kbd .mod1}[o]{.kbd}                   | Open\...                                          |
+| []{.kbd .mod1}[q]{.kbd}                   | Quit                                              |
+| []{.kbd .mod1}[s]{.kbd}                   | Save                                              |
+| []{.kbd .mod1}[]{.kbd .mod3}[n]{.kbd}     | Add Track, Bus or VCA\...                         |
+| []{.kbd .mod1}[]{.kbd .mod3}[o]{.kbd}     | Recent\...                                        |
+| []{.kbd .mod1}[]{.kbd .mod3}[s]{.kbd}     | Snapshot (& keep working on current version) \... |
+| []{.kbd .mod2}[e]{.kbd}                   | Export to Audio File(s)\...                       |
+| []{.kbd .mod2}[]{.kbd .mod3}[e]{.kbd}     | Stem export\...                                   |
+| Global Transport & Recording Control      |                                                   |
+| [space]{.kbd}                             | Start/Stop                                        |
+| [a]{.kbd}                                 | Solo Selection                                    |
+| [l]{.kbd}                                 | Play Loop Range                                   |
+| []{.kbd .mod3}[space]{.kbd}               | Start Recording                                   |
+| []{.kbd .mod3}[less]{.kbd}                | Record w/Preroll                                  |
+| []{.kbd .mod3}[greater]{.kbd}             | Record w/Count-In                                 |
+| []{.kbd .mod3}[r]{.kbd}                   | Enable Record                                     |
+| []{.kbd .mod3}[Left]{.kbd}                | Rewind                                            |
+| []{.kbd .mod3}[Up]{.kbd}                  | Transition to Roll                                |
+| []{.kbd .mod3}[Right]{.kbd}               | Forward                                           |
+| []{.kbd .mod3}[Down]{.kbd}                | Transition to Reverse                             |
+| []{.kbd .mod1}[space]{.kbd}               | Stop and Forget Capture                           |
+| []{.kbd .mod1}[Numpad +]{.kbd}            | Nudge Next Later                                  |
+| []{.kbd .mod1}[Numpad -]{.kbd}            | Nudge Next Earlier                                |
+| []{.kbd .mod2}[space]{.kbd}               | Play Selection                                    |
+| []{.kbd .mod2}[\`]{.kbd}                  | Use External Positional Sync Source               |
+| []{.kbd .mod1}[]{.kbd .mod2}[space]{.kbd} | Start/Continue/Stop                               |
+| Global Transport Modes                    |                                                   |
+| [7]{.kbd}                                 | Auto Return                                       |
+| [8]{.kbd}                                 | Punch In/Out                                      |
+| [\`]{.kbd}                                | Click                                             |
+| []{.kbd .mod1}[3]{.kbd}                   | Follow Range                                      |
+| []{.kbd .mod1}[7]{.kbd}                   | Auto Play                                         |
+| Global Window Visibility                  |                                                   |
+| [Numpad /]{.kbd}                          | Focus On Clock                                    |
+| []{.kbd .mod1}[Page_Up]{.kbd}             | Previous Tab                                      |
+| []{.kbd .mod1}[Page_Down]{.kbd}           | Next Tab                                          |
+| []{.kbd .mod1}[]{.kbd .mod3}[f]{.kbd}     | Maximise Mixer Space                              |
+| []{.kbd .mod2}[b]{.kbd}                   | Meterbridge                                       |
+| []{.kbd .mod2}[c]{.kbd}                   | Show Cues                                         |
+| []{.kbd .mod2}[k]{.kbd}                   | Virtual Keyboard                                  |
+| []{.kbd .mod2}[l]{.kbd}                   | Locations                                         |
+| []{.kbd .mod2}[m]{.kbd}                   | Show Mixer                                        |
+| []{.kbd .mod2}[o]{.kbd}                   | Properties                                        |
+| []{.kbd .mod2}[r]{.kbd}                   | Show Recorder                                     |
+| []{.kbd .mod2}[]{.kbd .mod3}[a]{.kbd}     | Audio Connections                                 |
+| []{.kbd .mod2}[]{.kbd .mod3}[m]{.kbd}     | MIDI Connections                                  |
+| []{.kbd .mod1}[]{.kbd .mod2}[f]{.kbd}     | Maximise Editor Space                             |
+| Selecting                                 |                                                   |
+| []{.kbd .mod1}[t]{.kbd}                   | Select All Visible Lanes                          |
+| []{.kbd .mod1}[]{.kbd .mod3}[i]{.kbd}     | Invert Selection                                  |
+
+## Window: MIDI
+
+| Note Editing                                           |                                       |
+|--------------------------------------------------------|---------------------------------------|
+| [,]{.kbd}                                              | Move Note Start Earlier               |
+| [.]{.kbd}                                              | Move Note Ends Later                  |
+| [c]{.kbd}                                              | Edit Note Channels                    |
+| [q]{.kbd}                                              | Quantize Selected Notes               |
+| [v]{.kbd}                                              | Edit Note Velocities                  |
+| [Tab]{.kbd}                                            | Select Next                           |
+| [Left]{.kbd}                                           | Nudge Notes Earlier (grid)            |
+| [Up]{.kbd}                                             | Transpose Up (semitone)               |
+| [Right]{.kbd}                                          | Nudge Notes Later (grid)              |
+| [Down]{.kbd}                                           | Transpose Down (semitone)             |
+| [Delete]{.kbd}                                         | Delete Selection (alternate)          |
+| []{.kbd .mod3}[ISO_Left_Tab]{.kbd}                     | Add Next to Selection (alternate)     |
+| []{.kbd .mod3}[Tab]{.kbd}                              | Add Next to Selection                 |
+| []{.kbd .mod3}[Up]{.kbd}                               | Transpose Up (octave, allow mush)     |
+| []{.kbd .mod3}[Down]{.kbd}                             | Transpose Down (octave, allow mush)   |
+| []{.kbd .mod1}[,]{.kbd}                                | Move Note Start Later                 |
+| []{.kbd .mod1}[.]{.kbd}                                | Move Note Ends Earlier                |
+| []{.kbd .mod1}[d]{.kbd}                                | Duplicate Note Selection              |
+| []{.kbd .mod1}[e]{.kbd}                                | Extend Note Selection                 |
+| []{.kbd .mod1}[i]{.kbd}                                | Invert Note Selection                 |
+| []{.kbd .mod1}[Tab]{.kbd}                              | Select Previous                       |
+| []{.kbd .mod1}[Up]{.kbd}                               | Increase Velocity                     |
+| []{.kbd .mod1}[Down]{.kbd}                             | Decrease Velocity                     |
+| []{.kbd .mod1}[]{.kbd .mod3}[ISO_Left_Tab]{.kbd}       | Add Previous to Selection (alternate) |
+| []{.kbd .mod1}[]{.kbd .mod3}[Tab]{.kbd}                | Add Previous to Selection             |
+| []{.kbd .mod1}[]{.kbd .mod3}[Up]{.kbd}                 | Increase Velocity (allow mush)        |
+| []{.kbd .mod1}[]{.kbd .mod3}[Down]{.kbd}               | Decrease Velocity (allow mush)        |
+| []{.kbd .mod2}[,]{.kbd}                                | Move Note Start Earlier (fine)        |
+| []{.kbd .mod2}[.]{.kbd}                                | Move Note Ends Later (fine)           |
+| []{.kbd .mod2}[Left]{.kbd}                             | Nudge Notes Earlier (1/4 grid)        |
+| []{.kbd .mod2}[Up]{.kbd}                               | Transpose Up (octave)                 |
+| []{.kbd .mod2}[Right]{.kbd}                            | Nudge Notes Later (1/4 grid)          |
+| []{.kbd .mod2}[Down]{.kbd}                             | Transpose Down (octave)               |
+| []{.kbd .mod2}[]{.kbd .mod3}[Up]{.kbd}                 | Transpose Up (semitone, allow mush)   |
+| []{.kbd .mod2}[]{.kbd .mod3}[Down]{.kbd}               | Transpose Down (semitone, allow mush) |
+| []{.kbd .mod1}[]{.kbd .mod2}[,]{.kbd}                  | Move Note Start Later (fine)          |
+| []{.kbd .mod1}[]{.kbd .mod2}[.]{.kbd}                  | Move Note Ends Earlier (fine)         |
+| []{.kbd .mod1}[]{.kbd .mod2}[Up]{.kbd}                 | Increase Velocity (fine)              |
+| []{.kbd .mod1}[]{.kbd .mod2}[Down]{.kbd}               | Decrease Velocity (fine)              |
+| []{.kbd .mod1}[]{.kbd .mod2}[]{.kbd .mod3}[Up]{.kbd}   | Increase Velocity (fine, allow mush)  |
+| []{.kbd .mod1}[]{.kbd .mod2}[]{.kbd .mod3}[Down]{.kbd} | Decrease Velocity (fine, allow mush)  |
+
+## Window: Recorder
+
+| Recorder Page                         |                                  |
+|---------------------------------------|----------------------------------|
+| []{.kbd .mod1}[r]{.kbd}               | Record Arm All Tracks            |
+| []{.kbd .mod1}[]{.kbd .mod3}[r]{.kbd} | Disable Record Arm of All Tracks |
+
+## Window: Mixer
+
+| Mixer Scenes                                  |                                                           |
+|-----------------------------------------------|-----------------------------------------------------------|
+| [F1]{.kbd}                                    | Recall Mixer Scene #1                                     |
+| [F2]{.kbd}                                    | Recall Mixer Scene #2                                     |
+| [F3]{.kbd}                                    | Recall Mixer Scene #3                                     |
+| [F4]{.kbd}                                    | Recall Mixer Scene #4                                     |
+| [F5]{.kbd}                                    | Recall Mixer Scene #5                                     |
+| [F6]{.kbd}                                    | Recall Mixer Scene #6                                     |
+| [F7]{.kbd}                                    | Recall Mixer Scene #7                                     |
+| [F8]{.kbd}                                    | Recall Mixer Scene #8                                     |
+| [F9]{.kbd}                                    | Recall Mixer Scene #9                                     |
+| [F10]{.kbd}                                   | Recall Mixer Scene #10                                    |
+| [F11]{.kbd}                                   | Recall Mixer Scene #11                                    |
+| [F12]{.kbd}                                   | Recall Mixer Scene #12                                    |
+| []{.kbd .mod1}[F1]{.kbd}                      | Store Mixer Scene #1                                      |
+| []{.kbd .mod1}[F2]{.kbd}                      | Store Mixer Scene #2                                      |
+| []{.kbd .mod1}[F3]{.kbd}                      | Store Mixer Scene #3                                      |
+| []{.kbd .mod1}[F4]{.kbd}                      | Store Mixer Scene #4                                      |
+| []{.kbd .mod1}[F5]{.kbd}                      | Store Mixer Scene #5                                      |
+| []{.kbd .mod1}[F6]{.kbd}                      | Store Mixer Scene #6                                      |
+| []{.kbd .mod1}[F7]{.kbd}                      | Store Mixer Scene #7                                      |
+| []{.kbd .mod1}[F8]{.kbd}                      | Store Mixer Scene #8                                      |
+| []{.kbd .mod1}[F9]{.kbd}                      | Store Mixer Scene #9                                      |
+| []{.kbd .mod1}[F10]{.kbd}                     | Store Mixer Scene #10                                     |
+| []{.kbd .mod1}[F11]{.kbd}                     | Store Mixer Scene #11                                     |
+| []{.kbd .mod1}[F12]{.kbd}                     | Store Mixer Scene #12                                     |
+| Navigation operations                         |                                                           |
+| [Left]{.kbd}                                  | Scroll Mixer Window to the left                           |
+| [Right]{.kbd}                                 | Scroll Mixer Window to the right                          |
+| Operations on the selected strip(s)           |                                                           |
+| [0]{.kbd}                                     | Set Gain to 0dB on Mixer-Selected Tracks/Busses           |
+| [d]{.kbd}                                     | Toggle Disk Monitoring                                    |
+| [i]{.kbd}                                     | Toggle Input Monitoring                                   |
+| [m]{.kbd}                                     | Toggle Mute on Mixer-Selected Tracks/Busses               |
+| [r]{.kbd}                                     | Toggle Rec-enable on Mixer-Selected Tracks/Busses         |
+| [Up]{.kbd}                                    | Increase Gain on Mixer-Selected Tracks/Busses             |
+| [Down]{.kbd}                                  | Decrease Gain on Mixer-Selected Tracks/Busses             |
+| []{.kbd .mod2}[i]{.kbd}                       | Toggle MIDI Input Active for Mixer-Selected Tracks/Busses |
+| Playhead to Start Marker                      |                                                           |
+| [Return]{.kbd}                                | Go to Start                                               |
+| Processor operations on the selected strip(s) |                                                           |
+| [/]{.kbd}                                     | Toggle Selected Plugins                                   |
+| [Delete]{.kbd}                                | Delete Selected Processors                                |
+| []{.kbd .mod1}[a]{.kbd}                       | Select All (visible) Processors                           |
+| []{.kbd .mod1}[c]{.kbd}                       | Copy Selected Processors                                  |
+| []{.kbd .mod1}[v]{.kbd}                       | Paste Selected Processors                                 |
+| []{.kbd .mod1}[x]{.kbd}                       | Cut Selected Processors                                   |
+| Window Visibility                             |                                                           |
+| []{.kbd .mod3}[l]{.kbd}                       | Mixer: Show Mixer List                                    |
+| []{.kbd .mod3}[m]{.kbd}                       | Mixer: Show Monitor Section                               |
+| []{.kbd .mod3}[v]{.kbd}                       | Mixer: Show VCAs                                          |
+| []{.kbd .mod2}[m]{.kbd}                       | Show Editor                                               |
+| []{.kbd .mod2}[Up]{.kbd}                      | Select Previous Mixer Strip                               |
+| []{.kbd .mod2}[Down]{.kbd}                    | Select Next Mixer Strip                                   |
+
+## Window: Step Editing
+
+| Uncategorized              |                                          |
+|----------------------------|------------------------------------------|
+| [\']{.kbd}                 | Toggle Triple Notes                      |
+| [,]{.kbd}                  | Set Note Velocity to Fortississimo       |
+| [.]{.kbd}                  | Toggled Dotted Notes                     |
+| [0]{.kbd}                  | Switch to the 11th octave                |
+| [1]{.kbd}                  | Switch to the 2nd octave                 |
+| [2]{.kbd}                  | Switch to the 3rd octave                 |
+| [3]{.kbd}                  | Switch to the 4th octave                 |
+| [4]{.kbd}                  | Switch to the 5th octave                 |
+| [5]{.kbd}                  | Switch to the 6th octave                 |
+| [6]{.kbd}                  | Switch to the 7th octave                 |
+| [7]{.kbd}                  | Switch to the 8th octave                 |
+| [8]{.kbd}                  | Switch to the 9th octave                 |
+| [9]{.kbd}                  | Switch to the 10th octave                |
+| [\`]{.kbd}                 | Switch to the 1st octave                 |
+| [a]{.kbd}                  | Insert Note C                            |
+| [b]{.kbd}                  | Set Note Velocity to Mezzo-Forte         |
+| [c]{.kbd}                  | Set Note Velocity to Piano               |
+| [d]{.kbd}                  | Insert Note E                            |
+| [e]{.kbd}                  | Insert Note D-sharp                      |
+| [f]{.kbd}                  | Insert Note F                            |
+| [g]{.kbd}                  | Insert Note G                            |
+| [h]{.kbd}                  | Insert Note A                            |
+| [j]{.kbd}                  | Insert Note B                            |
+| [m]{.kbd}                  | Set Note Velocity to Fortississimo       |
+| [n]{.kbd}                  | Set Note Velocity to Forte               |
+| [s]{.kbd}                  | Insert Note D                            |
+| [t]{.kbd}                  | Insert Note F-sharp                      |
+| [u]{.kbd}                  | Insert Note A-sharp                      |
+| [v]{.kbd}                  | Set Note Velocity to Mezzo-Piano         |
+| [w]{.kbd}                  | Insert Note C-sharp                      |
+| [x]{.kbd}                  | Set Note Velocity to Pianissimo          |
+| [y]{.kbd}                  | Insert Note G-sharp                      |
+| [z]{.kbd}                  | Set Note Velocity to Pianississimo       |
+| [BackSpace]{.kbd}          | Move Insert Position Back by Note Length |
+| [Tab]{.kbd}                | Insert a Note-length Rest                |
+| [Up]{.kbd}                 | Move to Next Note Velocity               |
+| [Down]{.kbd}               | Move to Previous Note Velocity           |
+| [F1]{.kbd}                 | Set Note Length to Whole                 |
+| [F2]{.kbd}                 | Set Note Length to 1/2                   |
+| [F3]{.kbd}                 | Set Note Length to 1/3                   |
+| [F4]{.kbd}                 | Set Note Length to 1/4                   |
+| [F5]{.kbd}                 | Set Note Length to 1/8                   |
+| [F6]{.kbd}                 | Set Note Length to 1/16                  |
+| [F7]{.kbd}                 | Set Note Length to 1/32                  |
+| [F8]{.kbd}                 | Set Note Length to 1/64                  |
+| []{.kbd .mod3}[bar]{.kbd}  | Toggle Chord Entry                       |
+| []{.kbd .mod1}[.]{.kbd}    | No Dotted Notes                          |
+| []{.kbd .mod1}[Tab]{.kbd}  | Insert a Snap-length Rest                |
+| []{.kbd .mod1}[Up]{.kbd}   | Move to Next Note Length                 |
+| []{.kbd .mod1}[Down]{.kbd} | Move to Previous Note Length             |
+
+## Window: Monitor Section
+
+| Uncategorized           |                                      |
+|-------------------------|--------------------------------------|
+| [a]{.kbd}               | After Fade Listen (AFL) solo         |
+| [b]{.kbd}               | Toggle Monitor Section Processor Box |
+| [e]{.kbd}               | Toggle exclusive solo mode           |
+| [i]{.kbd}               | In-place solo                        |
+| [l]{.kbd}               | Cut monitor channel 0                |
+| [o]{.kbd}               | Toggle mute overrides solo mode      |
+| [p]{.kbd}               | Pre Fade Listen (PFL) solo           |
+| [r]{.kbd}               | Cut monitor channel 1                |
+| []{.kbd .mod3}[l]{.kbd} | Invert monitor channel 0             |
+| []{.kbd .mod3}[r]{.kbd} | Invert monitor channel 1             |
+| []{.kbd .mod1}[l]{.kbd} | Solo monitor channel 0               |
+| []{.kbd .mod1}[r]{.kbd} | Solo monitor channel 1               |
+| []{.kbd .mod2}[l]{.kbd} | Dim monitor channel 0                |
+| []{.kbd .mod2}[r]{.kbd} | Dim monitor channel 1                |
+
+## Window: Processor Box
+
+| Uncategorized     |        |
+|-------------------|--------|
+| [BackSpace]{.kbd} | Delete |
+| [Delete]{.kbd}    | Delete |
+
+## Window: Cues
+
+Uncategorized
+
+[F1]{.kbd}
+
+Trigger Cue A
+
+[F2]{.kbd}
+
+Trigger Cue B
+
+[F3]{.kbd}
+
+Trigger Cue C
+
+[F4]{.kbd}
+
+Trigger Cue D
+
+[F5]{.kbd}
+
+Trigger Cue E
+
+[F6]{.kbd}
+
+Trigger Cue F
+
+[F7]{.kbd}
+
+Trigger Cue G
+
+[F8]{.kbd}
+
+Trigger Cue H
